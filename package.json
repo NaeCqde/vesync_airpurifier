@@ -1,0 +1,22 @@
+{
+    "name": "vesync_airpurifier",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "start": "bun run dev",
+        "dev": "bun run index.ts",
+        "build": "bun build index.ts --compile --outfile vesync-airpurifier"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3",
+        "hono": "^4.11.4",
+        "tsvesync": "^1.4.3"
+    }
+}
