@@ -1,4 +1,3 @@
-import "dotenv/config";
 import { Hono } from "hono";
 import { VeSync } from "tsvesync";
 import { VeSyncFan } from "tsvesync/dist/lib/vesyncFan";
@@ -30,10 +29,6 @@ console.info("[INFO] Fetching devices...");
 await manager.update();
 if (!manager.devices) throw Error("[ERROR] Devices not found!");
 
-for (const d of manager.devices) {
-    d.display();
-    console.info("[INFO] UUID: " + d.uuid);
-}
 console.info("\n\n");
 
 const fan = await getFan(manager);
