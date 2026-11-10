@@ -12,10 +12,16 @@
         "@types/bun": "latest"
     },
     "peerDependencies": {
-        "typescript": "^5"
+        "typescript": "^5.9.3"
     },
     "dependencies": {
-        "hono": "^4.11.4",
-        "tsvesync": "^1.4.3"
+        "hono": "^4.13.17",
+        "tsvesync": "^1.7.2"
+    },
+    "overrides": {
+        "axios": "^1.21.1",
+        "follow-redirects": "^1.16.3",
+        "form-data": "^4.0.6",
+        "js-yaml": "^5.5.0"
     }
 }
