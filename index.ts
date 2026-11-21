@@ -1,3 +1,4 @@
+import "./settings.js";
 import { Hono } from "hono";
 import { VeSync } from "tsvesync";
 import { VeSyncFan } from "tsvesync/dist/lib/vesyncFan";

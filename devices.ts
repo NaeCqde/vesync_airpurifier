@@ -1,3 +1,4 @@
+import "./settings.js";
 import { VeSync } from "tsvesync";
 
 const email = process.env.EMAIL;
