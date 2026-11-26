@@ -58,7 +58,7 @@ app.all("/power/:power", async (c) => {
   const power = c.req.param("power");
 
   console.info(
-    "[INFO] Changing fan power to " + power + " for device " + fan.deviceName,
+    "[INFO] Changing fan power to " + JSON.stringify(power) + " for device " + fan.deviceName,
   );
 
   if (power === "on") {
@@ -88,8 +88,13 @@ app.all("/speed/:speed", async (c) => {
     case "min":
       await fan.changeFanSpeed(1);
       break;
-    default:
-      await fan.changeFanSpeed(Number(speed));
+    default: {
+      const n = Number(speed);
+      if (speed.trim() === "" || !Number.isInteger(n)) {
+        return c.text("Bad Request", 400);
+      }
+      await fan.changeFanSpeed(n);
+    }
   }
   return c.text("OK");
 });
@@ -101,7 +106,7 @@ app.all("/mode/:mode", async (c) => {
   const mode = c.req.param("mode");
 
   console.info(
-    "[INFO] Changing fan mode to " + mode + " for device " + fan.deviceName,
+    "[INFO] Changing fan mode to " + JSON.stringify(mode) + " for device " + fan.deviceName,
   );
 
   await fan.setMode(mode);
